@@ -2,7 +2,7 @@
 
 Tool to schedule joining teams/zoom bridges automatically.
 
-![logo](./images/AutoJoinCall.ico)
+![logo](./images/AutoJoinTeamCall.ico)
 
 ## How ?
 There are 3 files in the package
