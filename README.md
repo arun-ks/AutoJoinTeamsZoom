@@ -2,6 +2,8 @@
 
 Tool to schedule joining teams/zoom bridges automatically.
 
+![logo](./images/logo.jpg)
+
 ## How ?
 There are 3 files in the package
 
