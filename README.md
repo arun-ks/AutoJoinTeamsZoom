@@ -35,9 +35,15 @@ The 2nd section "[History]" section has the log of previous SCHTASKS commands. I
 
 The **AutoJoinTeamCall** application reads the connection details/schedule from this file. The **AutoJoinTeamCallConfig** application writes to this file, it also reads from it to use default values of link & file-path.
 
-## Pre-requisites
+## Installation Guide
 
-1. The teams/zoom links open in browser by default. Ensure your browser is setup to transfer the link to respective applications. 
+### Pre-requisites
+The teams/zoom links open in browser by default. Ensure your browser is setup to transfer the link to respective applications. 
+
+If you have [Autohotkey](http://www.autohotkey.com) installed, you can execute the included .ahk source file & edit them as you please. This is optional.
+
+### Setup
+Download the 2 .exe & .ini file in this package & keep them in the same folder.
 
 ## Troubleshooting
 
