@@ -35,8 +35,16 @@ The 2nd section "[History]" section has the log of previous SCHTASKS commands. I
 
 The **AutoJoinTeamCall** application reads the connection details/schedule from this file. The **AutoJoinTeamCallConfig** application writes to this file, it also reads from it to use default values of link & file-path.
 
+## Pre-requisites
+
+1. The teams/zoom links open in browser by default. Ensure your browser is setup to transfer the link to respective applications. 
+
 ## Troubleshooting
 
  As this application uses windows SCHTASKS.EXE to schedule tasks, you can use TASKSCHD.MSC to see logs if there are errors.
  The ini file includes logs of past excecutions for tracking. This can be used to troubleshoot.
 
+
+## Future Enhancements
+
+The application currently allows setting up just 1 future event at a time. This will be enhanced in later versions.
