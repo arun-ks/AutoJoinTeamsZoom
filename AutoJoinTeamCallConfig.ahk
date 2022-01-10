@@ -6,6 +6,12 @@
 
 #SingleInstance force
 
+; Setup Tray icon, menu items & read configuration parameters
+IfExist %A_ScriptDir%/AutoJoinTeamCall.ico 
+{
+    Menu, Tray, Icon, %A_ScriptDir%/AutoJoinTeamCall.ico, , 0
+}
+
 ; Read Default settings from ini file
 IniRead, adBridgeLink ,%A_ScriptDir%/AutoJoinTeamCall.ini, Settings, BridgeLink, http://
 IniRead, adAudioFile  ,%A_ScriptDir%/AutoJoinTeamCall.ini, Settings, AudioFile, %A_ScriptDir%\HelloIamXfromYteam.wma
@@ -48,7 +54,7 @@ Gui, Add, Text, ym+70 x+5, Minute
 Gui, Add, Edit, ym+70 w35 xm+150
 Gui, Add, UpDown, Wrap vGUIHour Range0-23, %CHour%
 Gui, Add, Edit, ym+70 w35 x+1
-Gui, Add, UpDown, Wrap vGUIMinute Range1-59, %CMin%
+Gui, Add, UpDown, Wrap vGUIMinute Range0-59, %CMin%
 
 
 Gui, Add, GroupBox, x10 y160 w330 h70 , Teams/Zoom Link:             ; Use previous execution's value as default
