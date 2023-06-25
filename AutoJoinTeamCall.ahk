@@ -5,7 +5,7 @@
 ;///////////////////////////
 
 #SingleInstance force
-   
+
 ; Get settings from Ini file
 IniRead, adConfDate   ,%A_ScriptDir%/AutoJoinTeamCall.ini, Settings, ConfDate
 IniRead, adConfTime   ,%A_ScriptDir%/AutoJoinTeamCall.ini, Settings, ConfTime
@@ -18,26 +18,29 @@ VanishingDispMesg("You can abort AutoJoiner by pressing ESC. Opening link in ",2
 
 
 ; Get handle of Teams application
-if ( adBridgeType == "Teams" ) {          
+if ( adBridgeType == "Teams" ) {
    WinGet TEAMSPROG, ID,ahk_exe Teams.exe
    WinActivate ahk_id %TEAMSPROG%
 }
 
- Run %adBridgeUser%    	
- VanishingDispMesg("Waiting to control window and press JOIN button in",	5000)  ; 5 seconds is perhaps too low, but 15 seconds is too long
-      
+ Run %adBridgeUser%
+ VanishingDispMesg("Waiting to control window and press JOIN button in",	14000)  ; 14 seconds is perhaps too low, but 15 seconds is too long
+
 if ( adBridgeType == "Teams" or 0 == 0 ) {            ; Somehow works for Zoom too
   Send {Shift Down}{TAB}{Shift Up}
   Sleep 200
-  Send {ENTER}
+  Send {TAB}
+  Sleep 200
+  Send {Shift Down}{TAB}{Shift Up}
+  Sleep 500
+ Send {ENTER}
 }
 
 VanishingDispMesg("Waiting for welcome message to end and play Audio file in",6000)
 ; SoundPlay,  %adAudioFile%   ;;-- Somehow didn't work for big mp3s
 Run %adAudioFile%
-   
-exitapp ;
 
+exitapp ;
 
 VanishingDispMesg(text, milliSeconds){
 	Gui, +AlwaysOnTop +ToolWindow -SysMenu -Caption
@@ -49,7 +52,7 @@ VanishingDispMesg(text, milliSeconds){
 	seconds2Sleep := milliSeconds//1000
 	while seconds2Sleep > 0
   {
-  	  paddedSeconds2Sleep := (StrLen(seconds2Sleep)=1 ? "0" : "") seconds2Sleep  	  	
+  	  paddedSeconds2Sleep := (StrLen(seconds2Sleep)=1 ? "0" : "") seconds2Sleep
     	Gui, Add, Text, x0 y0, %text% %paddedSeconds2Sleep%  Seconds  ;the text to display
 	    Gui, Show, NoActivate, Xn: 0, Yn: 0
       seconds2Sleep := seconds2Sleep - 1

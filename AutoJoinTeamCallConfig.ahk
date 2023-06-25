@@ -21,8 +21,10 @@ Menu, tray, NoStandard
 Menu, tray, add, &Help, MenuHelp
 Menu, tray, add, E&xit, ButtonCancel
 
-;Get current local time, parse it, store lt in variables for the GUI Timer
-FormatTime, CDate,, yyyy-M-d-H-m
+;Get current local time + 1 minute, parse it, store lt in variables for the GUI Timer
+currDateTime := ""  ;  
+currDateTime += 1, Minutes
+FormatTime, CDate, %currDateTime%, yyyy-M-d-H-m
 Loop, parse, CDate, -,
 {
 	if A_Index = 1
@@ -43,7 +45,7 @@ Gui, Add, Text, ym+40 xm+10, Year |
 Gui, Add, Text, ym+40 x+5, Month | 
 Gui, Add, Text, ym+40 x+5, Day
 Gui, Add, Edit, ym+40 xm+150 w65
-Gui, Add, UpDown, Wrap 0x80 vGUIYear Range2020-2050, %CYear%
+Gui, Add, UpDown, Wrap 0x80 vGUIYear Range2022-2050, %CYear%
 Gui, Add, Edit, ym+40 w35 x+1
 Gui, Add, UpDown, Wrap vGUIMonth Range1-12, %CMonth%
 Gui, Add, Edit, ym+40 w35 x+1
